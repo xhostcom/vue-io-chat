@@ -50,6 +50,10 @@ export default {
       });
     }
   },
+  sendMessage: function (message) {
+    this.socket.emit('msg', message);
+
+  },
   mounted: function () {
    this.username = prompt("What is your username?", "Anonymous");
 
