@@ -16,6 +16,10 @@
     "nodemon": "*",
     "socket.io-client": "^2.3.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:xhostcom/vue-io-chat.git"
+  },
   "keywords": [
     "chat",
     "vue",
