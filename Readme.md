@@ -16,15 +16,17 @@ Clone and run npm install
 
 ## Configuration
 
-npm run dev
+npm run dev  (root folderfor nodemon)
 
-## Documentation
+yarn serve (client folder for Vue Chat client app)
 
+## Todo
 
+Fix not updating no of users online in Vue app.
+
+Build a Vuetify/MongoDB version.
 
 ## Troubleshooting/Issues
-
-
 
 ## FAQ
 

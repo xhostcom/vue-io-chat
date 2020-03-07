@@ -1,16 +1,16 @@
 <template>
-<div class="chat-window">
-    <div class="messages">
-        <div class="message" v-for="message in messages" v-bind:key="message._id">
-            <div class="username">{{message.username}}</div>
-            <div class="message-text">{{message.msg}}</div>
-        </div>
-    </div>
-    <form class="input-container" v-on:submit="sendMessage">
-        <input type="text" v-model="msg">
-        <button v-on:click="sendMessage" v-bind:disabled="!msg">Send</button>
-    </form>
-</div>
+	<div class="chat-window">
+		<div class="messages">
+			<div class="message" v-for="message in messages" v-bind:key="message._id">
+				<div class="username">{{message.username}}</div>
+				<div class="message-text">{{message.msg}}</div>
+			</div>
+		</div>
+		<form class="input-container" v-on:submit="sendMessage">
+			<input type="text" v-model="msg">
+			<button v-on:click="sendMessage" v-bind:disabled="!msg">Send</button>
+		</form>
+	</div>
 </template>
 
 <script>
@@ -42,7 +42,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	background-color: #F9F9F9;
-    box-shadow: 1px 1px 6px 0px rgba($color: #000000, $alpha: 0.15);
+	box-shadow: 1px 1px 6px 0px rgba($color: #000000, $alpha: 0.15);
 
 	.messages {
 		flex: 1;
@@ -51,7 +51,7 @@ export default {
 		.message {
 			display: flex;
 			border-bottom: 1px solid #EFEFEF;
-			padding: 10px;
+			padding: 20px;
 
 			&:last-of-type {
 				border-bottom: none;
@@ -72,14 +72,17 @@ export default {
 
 		input {
 			flex: 1;
-			height: 35px;
+			height: 40px;
 			font-size: 18px;
 			box-sizing: border-box;
 		}
 
 		button {
+			background-color:#1B2845;
+            color:whitesmoke;
 			width: 75px;
-			height: 35px;
+			height: 40px;
+			border: 0;
 			box-sizing: border-box;
 		}
 	}
