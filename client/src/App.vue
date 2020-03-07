@@ -1,19 +1,23 @@
 <template>
   <div id="app">
     <div class="header">
-    <h1>Chatroom</h1>
+    <h1>Vue Chatroom</h1>
     <p class="username">User Name: {{ username }}</p>
     <p class="online">Online: {{ users.length }}</p>
     </div>
-   <h2>Hello</h2>
+  <ChatRoom v-bind:messages="messages" v-on:sendMessage="this.sendMessage" />
   </div>
 </template>
 
 <script>
 import io from 'socket.io-client';
+
+
 export default {
   name: 'App',
-  components: {},
+  components: {
+
+  },
   data: function() {
     return {
       username: "",
@@ -26,7 +30,24 @@ export default {
     joinServer: function () {
       this.socket.on('loggedIn', data => {
          this.messages = data.messages;
+         this.user = data.users;
+         this.socket.emit('newuser', this.username);
       })
+
+      this.listen();
+    },
+    listen: function () {
+      this.socket.on('userOnline', user => {
+         this.users.push(user);
+      });
+      this.socket.on('userLeft', user => {
+         this.users.splice(this.users.indexOf(user), 1);
+      });
+      this.socket.on('msg', message => {
+         this.messages.push(message);
+
+
+      });
     }
   },
   mounted: function () {
